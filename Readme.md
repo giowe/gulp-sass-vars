@@ -38,9 +38,11 @@ gulp.task('sass', function() {
 
 This script will prepend the following code to your main.scss file:
 
+```
 $stringTest: hello;
 $string2Test: "https://github.com/giowe/gulp-sass-vars";
 $integerTest: 123;
+```
 
 So you can use all those variables inside your sass file.
 Quotes will be added when needed via regex.
