@@ -7,7 +7,7 @@
 	<a href="https://www.youtube.com/watch?v=Sagg08DrO5U"><img src='http://img.shields.io/badge/gandalf-approved-61C6FF.svg'></a>
 </div>
 
-Inject variables in sass files from a js object
+Inject variables in sass files from a js object.
 
 ## Usage
 
