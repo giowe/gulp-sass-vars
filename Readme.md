@@ -17,7 +17,7 @@ npm install gulp-sass-vars
 
 ```js
 
-var insert = require('gulp-sass-vars');
+var sassVars = require('gulp-sass-vars');
 
 gulp.task('sass', function() {
   var variables = {
