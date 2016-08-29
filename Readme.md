@@ -29,7 +29,7 @@ gulp.task('sass', function() {
   return gulp.src([
     'src/styles/main.scss'
   ])
-    .pipe(sassVars(variables))
+    .pipe(sassVars(variables, { verbose: true }))
     .pipe(sass())
     .pipe(gulp.dest('dist'))
 });
