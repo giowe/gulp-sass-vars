@@ -18,8 +18,8 @@ function getStreamFromBuffer(string) {
 
 module.exports = function(vars, opt) {
   opt = opt || {};
-  opt.verbose = opt.verbose || true;
-  
+  opt.verbose = opt.verbose !== null ? opt.verbose : true;
+
   const sassVars = [];
 
   Object.keys(vars).map((key) => {
@@ -27,21 +27,21 @@ module.exports = function(vars, opt) {
     if ( !value.match(regexp) ) value = `"${value}"`;
     sassVars.push(`$${key}: ${value};`);
   });
-  
+
   const prepend = sassVars.join('\n');
-  
+
   if (opt.verbose) {
     gutil.log(`${pkg.name}: Injected ${gutil.colors.green(sassVars.length)} variables to sass:`);
     sassVars.map(statement => gutil.log(statement));
   }
-  
+
   const stream = new Stream.Transform({objectMode: true});
-  
+
   stream._transform = function(file, enc, cb) {
     if(file.isNull()) {
       return cb(null, file);
     }
-    
+
     const prependedBuffer = new Buffer(prepend);
     if(file.isStream()) {
       file.contents = new StreamQueue( getStreamFromBuffer(prependedBuffer), file.contents);

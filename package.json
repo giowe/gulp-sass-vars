@@ -1,4 +1,8 @@
 {
+  "name": "gulp-sass-vars",
+  "version": "1.0.3",
+  "description": "Inject variables in sass files",
+  "main": "index.js",
   "author": {
     "email": "giovanni.bruno@soluzionifutura.it",
     "name": "Giovanni Bruno"
@@ -8,7 +12,6 @@
     "readable-stream": "^2.1.5",
     "streamqueue": "0.0.6"
   },
-  "description": "Inject variables in sass files",
   "keywords": [
     "gulp",
     "gulpplugin",
@@ -17,11 +20,8 @@
     "variables"
   ],
   "license": "MIT",
-  "main": "index.js",
-  "name": "gulp-sass-vars",
   "repository": {
     "type": "git",
     "url": "https://github.com/giowe/gulp-sass-vars.git"
-  },
-  "version": "1.0.2"
+  }
 }
