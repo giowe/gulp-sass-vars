@@ -54,7 +54,7 @@ function parseValue(value, verbose) {
 
 module.exports = function(vars, opt) {
   opt = opt || {};
-  opt.verbose = opt.verbose !== null ? opt.verbose : true;
+  opt.verbose = (typeof opt.verbose === "boolean") ? opt.verbose : true;
 
   const sassVars = [];
 
