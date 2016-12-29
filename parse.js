@@ -2,8 +2,7 @@
 
 const is = require("./lib/is");
 const isColor = require('is-color');
-const isProperty = require('is-css-property').default;
-const isUnit = require('./lib/is-unit');
+const isLength = require('is-css-length');
 const { log, colors, PluginError } = require('gulp-util');
 const pkg = require('./package.json');
 
@@ -23,8 +22,8 @@ function parseMap(object, verbose) {
 }
 
 function parseValue(value, verbose) {
-  if (is('String', value)) { // parses strings, units, properties and colors
-    if (isColor(value) || isUnit(value) || isProperty(value))
+  if (is('String', value)) { // parses string, length and colors
+    if (isColor(value) || isLength(value))
       return value;
     return `'${value.replace(/\'/g, '\\\'')}'`;
   }
