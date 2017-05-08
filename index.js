@@ -3,6 +3,7 @@
 const { log, colors: { green }, PluginError } = require('gulp-util');
 const header = require('gulp-header');
 const parse = require('parse-sass-value');
+const pkg = require('./package.json');
 
 /**
  * @typedef Options
