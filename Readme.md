@@ -21,27 +21,40 @@ var sassVars = require('gulp-sass-vars');
 
 gulp.task('sass', function() {
   var variables = {
-    stringTest: "hello",
-    string2Test: "https://github.com/giowe/gulp-sass-vars",
-    integerTest: 123,
+    theme: null,
+    url: 'https://github.com/giowe/gulp-sass-vars',
+    font: {
+      family: ["'Open Sans'", 'sans-serif'],
+      size: '1.6em',
+      color: 'rgb(0,0,0)',
+      'line-height': 1.5
+    },
+    sizes: ['xs', 'sm', 'lg'],
+    responsive: true,
+    display: 'flex'
   };
 
-  return gulp.src([
-    'src/styles/main.scss'
-  ])
+  return gulp.src('src/styles/main.scss')
     .pipe(sassVars(variables, { verbose: true }))
     .pipe(sass())
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('dist'));
 });
 ```
 
 This script will prepend the following code to your main.scss file:
 
-```
-$stringTest: hello;
-$string2Test: "https://github.com/giowe/gulp-sass-vars";
-$integerTest: 123;
+```scss
+$theme: null;
+$url: 'https://github.com/giowe/gulp-sass-vars';
+$font: (
+  'family': ('\'Open Sans\'', 'sans-serif'),
+  'size': 1.6em,
+  'color': rgb(0,0,0),
+  'line-height': 1.5
+);
+$sizes: ('xs', 'sm', 'lg');
+$responsive: true;
+$display: 'flex';
 ```
 
 So you can use all those variables inside your sass file.
-Quotes will be added when needed via regex.
