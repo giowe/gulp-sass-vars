@@ -8,9 +8,10 @@
     "name": "Giovanni Bruno"
   },
   "dependencies": {
-    "gulp-header": "^1.8.8",
-    "gulp-util": "^3.0.7",
-    "parse-sass-value": "^1.0.0"
+    "gulp-util": "^3.0.8",
+    "parse-sass-value": "^1.1.2",
+    "readable-stream": "^2.2.11",
+    "streamqueue": "^1.1.1"
   },
   "keywords": [
     "gulp",
