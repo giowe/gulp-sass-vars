@@ -1,34 +1,26 @@
 'use strict';
 
 const { log, colors: { green }, PluginError } = require('gulp-util');
-const header = require('gulp-header');
+const Stream = require('readable-stream');
+const StreamQueue = require('streamqueue');
 const parse = require('parse-sass-value');
 const pkg = require('./package.json');
 
-/**
- * @typedef Options
- * @type {Object}
- * @property {boolean} verbose
- * @property {('single'|'double')} quotes
- * @property {('comma'|'space')} separator
- */
-
-/**
- * Default plugin options.
- * @type {Options}
- */
 const defaultOptions = {
   verbose: true,
   quotes: 'single',
   separator: 'comma'
 };
 
-/**
- * Parse object properties as SASS variables and inject them on streams.
- * @param {Object} variables
- * @param {Options} options
- * @returns {Stream}
- */
+function getStreamFromBuffer(string) {
+  const stream = new Stream.Readable();
+  stream._read = function() {
+    stream.push(new Buffer(string));
+    stream._read = stream.push.bind(stream, null);
+  };
+  return stream;
+}
+
 module.exports = (variables, options) => {
   options = Object.assign({}, defaultOptions, options);
 
@@ -53,5 +45,23 @@ module.exports = (variables, options) => {
       + `\t${statements.join('\n\t')}`);
   }
 
-  return header(statements.join('\n'));
+  const stream = new Stream.Transform({objectMode: true});
+
+  stream._transform = function(file, enc, cb) {
+    if(file.isNull()) {
+      return cb(null, file);
+    }
+
+    const prependedBuffer = new Buffer(statements.join('\n'));
+    if(file.isStream()) {
+      file.contents = new StreamQueue( getStreamFromBuffer(prependedBuffer), file.contents);
+      return cb(null, file);
+    }
+
+    file.contents = Buffer.concat([prependedBuffer, file.contents],
+      prependedBuffer.length + file.contents.length);
+    cb(null, file);
+  };
+
+  return stream;
 };
