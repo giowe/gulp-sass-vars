@@ -20,7 +20,7 @@ npm install gulp-sass-vars
 var sassVars = require('gulp-sass-vars');
 
 gulp.task('sass', function() {
-  var variables = {
+  const variables = {
     theme: null,
     url: 'https://github.com/giowe/gulp-sass-vars',
     font: {
