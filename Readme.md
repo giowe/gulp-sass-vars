@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="http://gulpjs.com">
+    <img height="257" width="114" src="https://raw.githubusercontent.com/gulpjs/artwork/master/gulp-2x.png">
+  </a>
+</p>
+
 # gulp-sass-vars
 
 <div>
@@ -12,7 +18,7 @@ Inject variables in sass files from a js object.
 ## Usage
 
 ```
-npm install gulp-sass-vars
+npm install git+https://github.com/DrNixx/gulp-sass-vars.git
 ```
 
 ```js
