@@ -18,7 +18,7 @@ Inject variables in sass files from a js object.
 ## Usage
 
 ```
-npm install git+https://github.com/DrNixx/gulp-sass-vars.git
+npm install gulp-sass-vars
 ```
 
 ```js
