@@ -6,7 +6,7 @@ const parse = require('parse-sass-value');
 const pkg = require('./package.json');
 const log = require('fancy-log');
 const PluginError = require('plugin-error');
-const ansiGreen = require('ansi-colors');
+const ansiGreen = require('ansi-colors').green;
 const supportsColor = require('color-support');
 
 const colorDetectionOptions = {
