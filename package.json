@@ -13,7 +13,7 @@
     "parse-sass-value": "^2.3.0",
     "plugin-error": "^1.0.1",
     "readable-stream": "^3.6.0",
-    "streamqueue": "^1.1.1"
+    "streamqueue": "^1.1.2"
   },
   "keywords": [
     "gulp",
