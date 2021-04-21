@@ -1,16 +1,33 @@
 'use strict';
 
-const { log, colors: { green }, PluginError } = require('gulp-util');
 const Stream = require('readable-stream');
 const StreamQueue = require('streamqueue');
 const parse = require('parse-sass-value');
 const pkg = require('./package.json');
+const log = require('fancy-log');
+const PluginError = require('plugin-error');
+const ansiGreen = require('ansi-colors').green;
+const supportsColor = require('color-support');
+
+const colorDetectionOptions = {
+  // If on Windows, ignore the isTTY check
+  // This is due to AppVeyor (and thus probably common Windows platforms?) failing the check
+  ignoreTTY: (process.platform === 'win32'),
+};
 
 const defaultOptions = {
   verbose: true,
   quotes: 'single',
   separator: 'comma'
 };
+
+function green(msg) {
+  if (supportsColor(colorDetectionOptions)) {
+    return ansiGreen(msg);
+  }
+
+  return msg;
+}
 
 function getStreamFromBuffer(string) {
   const stream = new Stream.Readable();
