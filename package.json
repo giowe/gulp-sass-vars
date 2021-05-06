@@ -7,6 +7,9 @@
     "email": "giovanni.bruno@soluzionifutura.it",
     "name": "Giovanni Bruno"
   },
+  "scripts": {
+    "eslint:fix": "eslint --fix ."
+  },
   "dependencies": {
     "ansi-colors": "^4.1.1",
     "fancy-log": "^1.3.3",
@@ -26,5 +29,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/giowe/gulp-sass-vars.git"
+  },
+  "devDependencies": {
+    "@soluzioni-futura/eslint-config-soluzioni-futura": "^1.4.0",
+    "eslint": "^7.25.0"
   }
 }
