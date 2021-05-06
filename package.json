@@ -1,6 +1,6 @@
 {
   "name": "gulp-sass-vars",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Inject variables in sass files",
   "main": "index.js",
   "author": {
@@ -8,7 +8,8 @@
     "name": "Giovanni Bruno"
   },
   "scripts": {
-    "eslint:fix": "eslint --fix ."
+    "eslint:fix": "eslint --fix .",
+    "test": "gulp sass --gulpfile ./test/test.js"
   },
   "dependencies": {
     "ansi-colors": "^4.1.1",
@@ -32,6 +33,8 @@
   },
   "devDependencies": {
     "@soluzioni-futura/eslint-config-soluzioni-futura": "^1.4.0",
-    "eslint": "^7.25.0"
+    "eslint": "^7.25.0",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0"
   }
 }

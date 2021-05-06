@@ -17,7 +17,7 @@ Inject variables in sass files from a js object.
 
 ## Usage
 
-```
+``` bash
 npm install gulp-sass-vars
 ```
 

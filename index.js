@@ -54,7 +54,7 @@ module.exports = (variables, options) => {
         }
       }
 
-      return `$${name}: ${value}`
+      return `$${name}: ${value};`
     })
 
   if (options.verbose) {
